@@ -322,13 +322,22 @@ ul {
       rgba(255, 255, 255, 0.03) 62px
     );
 }
-.hero__video {
+.hero__carousel {
+  position: absolute;
+  inset: 0;
+}
+.hero__carousel-img {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  opacity: 0;
+  transition: opacity 1.2s ease;
   z-index: 0;
+}
+.hero__carousel-img.is-active {
+  opacity: 1;
 }
 .hero__content {
   position: relative;

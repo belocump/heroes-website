@@ -38,16 +38,10 @@
     <!-- ヒーローセクション -->
     <section class="hero" id="top">
       <div class="hero__bg">
-        <video
-          class="hero__video"
-          autoplay
-          muted
-          loop
-          playsinline
-          poster="img/hero_poster.jpg"
-        >
-          <source src="img/hero_bg.mp4" type="video/mp4" />
-        </video>
+        <div class="hero__carousel">
+          <img src="img/hero_poster.jpg" alt="" class="hero__carousel-img is-active" />
+          <img src="img/event_photo.jpg" alt="" class="hero__carousel-img" />
+        </div>
       </div>
       <div class="container hero__content">
         <p class="hero__label">屋内コートだから、雨でも絶対に開催。</p>

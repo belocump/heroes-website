@@ -70,6 +70,17 @@ document.querySelectorAll('.feature-item').forEach((item, i) => {
   item.style.transitionDelay = `${i * 0.1}s`;
 });
 
+/* ── ヒーローカルーセル（5秒ごとにフェード切り替え） ── */
+const carouselImgs = document.querySelectorAll('.hero__carousel-img');
+if (carouselImgs.length > 1) {
+  let current = 0;
+  setInterval(() => {
+    carouselImgs[current].classList.remove('is-active');
+    current = (current + 1) % carouselImgs.length;
+    carouselImgs[current].classList.add('is-active');
+  }, 5000);
+}
+
 /* ── スムーズスクロール（hrefが#で始まるすべてのリンク） ── */
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', e => {
