@@ -865,6 +865,31 @@ ul {
    RESPONSIVE — スマホ
 ═══════════════════════════════════ */
 @media (max-width: 600px) {
+  /* イベントカードのスマホ対応 */
+  .events__grid {
+    max-width: 100%;
+    gap: 20px;
+  }
+  .event-card__body {
+    padding: 16px 16px 0;
+  }
+  .event-card__icon-wrap {
+    padding: 24px 0 12px;
+  }
+  .event-card__icon {
+    font-size: 2.2rem;
+  }
+  .event-card__title {
+    font-size: 1.1rem;
+  }
+  .event-card__catch {
+    font-size: 0.875rem;
+  }
+  .event-card__btn {
+    font-size: 0.8rem;
+    padding: 10px 16px;
+  }
+
   .hero__cta {
     flex-direction: column;
   }
