@@ -70,16 +70,35 @@ document.querySelectorAll('.feature-item').forEach((item, i) => {
   item.style.transitionDelay = `${i * 0.1}s`;
 });
 
-/* ── ヒーローカルーセル（5秒ごとにフェード切り替え） ── */
-const carouselImgs = document.querySelectorAll('.hero__carousel-img');
-if (carouselImgs.length > 1) {
+/* ── ヒーローカルーセル ── */
+(function () {
+  const imgs = Array.from(document.querySelectorAll('#hero-carousel .hero__carousel-img'));
+  const dotsWrap = document.getElementById('hero-dots');
+  if (!imgs.length || !dotsWrap) return;
+
+  /* ドットを枚数分生成 */
+  const dots = imgs.map((_, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'hero__dot' + (i === 0 ? ' is-active' : '');
+    btn.setAttribute('aria-label', 'スライド' + (i + 1));
+    btn.addEventListener('click', () => goTo(i));
+    dotsWrap.appendChild(btn);
+    return btn;
+  });
+
   let current = 0;
-  setInterval(() => {
-    carouselImgs[current].classList.remove('is-active');
-    current = (current + 1) % carouselImgs.length;
-    carouselImgs[current].classList.add('is-active');
-  }, 5000);
-}
+
+  function goTo(next) {
+    imgs[current].classList.remove('is-active');
+    dots[current].classList.remove('is-active');
+    current = next;
+    imgs[current].classList.add('is-active');
+    dots[current].classList.add('is-active');
+  }
+
+  /* 4秒ごとに自動切り替え */
+  setInterval(() => goTo((current + 1) % imgs.length), 4000);
+}());
 
 /* ── スムーズスクロール（hrefが#で始まるすべてのリンク） ── */
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {

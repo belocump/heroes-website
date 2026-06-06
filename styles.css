@@ -339,6 +339,29 @@ ul {
 .hero__carousel-img.is-active {
   opacity: 1;
 }
+.hero__dots {
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 2;
+}
+.hero__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.45);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.3s, transform 0.3s;
+}
+.hero__dot.is-active {
+  background: #fff;
+  transform: scale(1.35);
+}
 .hero__content {
   position: relative;
   z-index: 2;
