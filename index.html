@@ -37,7 +37,18 @@
 
     <!-- ヒーローセクション -->
     <section class="hero" id="top">
-      <div class="hero__bg"></div>
+      <div class="hero__bg">
+        <video
+          class="hero__video"
+          autoplay
+          muted
+          loop
+          playsinline
+          poster="img/hero_poster.jpg"
+        >
+          <source src="img/hero_bg.mp4" type="video/mp4" />
+        </video>
+      </div>
       <div class="container hero__content">
         <p class="hero__label">屋内コートだから、雨でも絶対に開催。</p>
         <h1 class="hero__title">週末の充実感<br /></h1>
@@ -104,7 +115,7 @@
           <article class="event-card" data-index="0">
             <div class="event-card__badge">金・土・日</div>
             <div class="event-card__icon-wrap">
-              <div class="event-card__icon">&#9917;</div>
+              <img src="img/event_photo.jpg" alt="個人フットサルの様子" class="event-card__img" />
             </div>
             <div class="event-card__body">
               <h3 class="event-card__title">大人の個サル</h3>
@@ -137,39 +148,7 @@
               人気No.1 | 土・日
             </div>
             <div class="event-card__icon-wrap">
-              <div class="event-card__icon">&#127944;</div>
-            </div>
-            <div class="event-card__body">
-              <h3 class="event-card__title">ソサイチ</h3>
-              <p class="event-card__catch">
-                「フットサルじゃ物足りない。<br />でも11人は集まらないあなたへ」
-              </p>
-              <p class="event-card__desc">
-                屋内の広いコートを活かし、サッカーに近いロングパスや展開力を楽しめる、大人のためのミニサッカー。
-              </p>
-              <ul class="event-card__info">
-                <li>
-                  <span class="info-label">開催日</span><span>土日の日中</span>
-                </li>
-                <li>
-                  <span class="info-label">対象</span
-                  ><span>フットサル経験者〜サッカー経験者</span>
-                </li>
-              </ul>
-              <a href="#reserve" class="btn btn--gold event-card__btn"
-                >このイベントのスケジュールを見る
-                <span class="btn__arrow">&#8594;</span></a
-              >
-            </div>
-          </article>
-
-          <!-- ソサイチ -->
-          <article class="event-card event-card--featured" data-index="1">
-            <div class="event-card__badge event-card__badge--gold">
-              人気No.1 | 土・日
-            </div>
-            <div class="event-card__icon-wrap">
-              <div class="event-card__icon">&#127944;</div>
+              <img src="img/event_photo.jpg" alt="ソサイチの様子" class="event-card__img" />
             </div>
             <div class="event-card__body">
               <h3 class="event-card__title">ソサイチ</h3>
@@ -199,7 +178,7 @@
           <article class="event-card" data-index="2">
             <div class="event-card__badge">土・日</div>
             <div class="event-card__icon-wrap">
-              <div class="event-card__icon">&#128694;</div>
+              <img src="img/event_photo.jpg" alt="ウォーキングフットボールの様子" class="event-card__img" />
             </div>
             <div class="event-card__body">
               <h3 class="event-card__title">ウォーキング<br />フットボール</h3>
@@ -234,7 +213,7 @@
       <div class="container">
         <div class="section-header section-header--light">
           <p class="section-label">STAFF</p>
-          <h2 class="section-title">今週のコーディネーター</h2>
+          <h2 class="section-title">コーディネーター</h2>
           <p class="section-desc">
             スタッフの顔が見えるから、初めての参加でも安心。
           </p>
@@ -330,12 +309,12 @@
       <div class="container">
         <div class="cta__inner">
           <p class="cta__label">RESERVE NOW</p>
-          <h2 class="cta__title">今週末、一緒にやりましょう。</h2>
+          <h2 class="cta__title">今週末<br />一緒にやりましょう。</h2>
           <p class="cta__desc">
-            屋内コートで、スタッフと一緒に全力で楽しめる週末があります。<br />まず1回、気軽に参加してみてください。
+            屋内コートで、スポーツを楽しめる週末があります。<br />まず1回、気軽に参加してみてください。
           </p>
           <a href="#" class="btn btn--primary btn--xl" id="reserve-btn"
-            >今週末のイベントを予約する（外部サイト）</a
+            >イベントを予約する（外部サイト）</a
           >
           <p class="cta__note">※ 予約は外部サービスへ遷移します</p>
         </div>

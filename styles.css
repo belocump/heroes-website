@@ -292,12 +292,20 @@ ul {
 .hero__bg {
   position: absolute;
   inset: 0;
+  overflow: hidden;
+}
+/* 動画の上にグラデーションオーバーレイ */
+.hero__bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
   background:
     linear-gradient(
       135deg,
-      rgba(10, 40, 15, 0.85) 0%,
-      rgba(26, 107, 47, 0.7) 60%,
-      rgba(14, 74, 30, 0.9) 100%
+      rgba(10, 40, 15, 0.8) 0%,
+      rgba(26, 107, 47, 0.6) 60%,
+      rgba(14, 74, 30, 0.85) 100%
     ),
     repeating-linear-gradient(
       0deg,
@@ -314,9 +322,17 @@ ul {
       rgba(255, 255, 255, 0.03) 62px
     );
 }
+.hero__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
 .hero__content {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   max-width: 720px;
   padding-block: 80px 120px;
 }
@@ -471,17 +487,19 @@ ul {
   background: var(--color-gold);
 }
 .event-card__icon-wrap {
-  padding: 36px 0 16px;
-  text-align: center;
-  background: linear-gradient(
-    135deg,
-    var(--color-green-dark),
-    var(--color-green)
-  );
+  overflow: hidden;
   border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  height: 180px;
 }
-.event-card__icon {
-  font-size: 3rem;
+.event-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--transition);
+}
+.event-card:hover .event-card__img {
+  transform: scale(1.05);
 }
 .event-card__body {
   padding: 24px 28px 0;
@@ -874,10 +892,7 @@ ul {
     padding: 16px 16px 0;
   }
   .event-card__icon-wrap {
-    padding: 24px 0 12px;
-  }
-  .event-card__icon {
-    font-size: 2.2rem;
+    height: 140px;
   }
   .event-card__title {
     font-size: 1.1rem;
