@@ -1012,6 +1012,43 @@ ul {
   color: var(--color-gold);
   font-weight: 700;
 }
+.modal__section {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--color-light);
+}
+.modal__section:first-of-type {
+  margin-top: 16px;
+}
+.modal__section-title {
+  font-size: 0.85rem;
+  font-weight: 900;
+  font-family: var(--font-display);
+  color: var(--color-green);
+  margin-bottom: 12px;
+  letter-spacing: 0.02em;
+}
+.modal__list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-left: 1.4em;
+}
+.modal__list li {
+  font-size: 0.825rem;
+  color: var(--color-text);
+  line-height: 1.7;
+}
+.modal__list li strong {
+  color: var(--color-dark);
+  font-weight: 700;
+}
+.modal__list--ol {
+  list-style: decimal;
+}
+.modal__list:not(.modal__list--ol) {
+  list-style: disc;
+}
 
 /* ═══════════════════════════════════
    CTA

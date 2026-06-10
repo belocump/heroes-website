@@ -1,138 +1,46 @@
-<div
-  class="modal"
-  id="cancel-modal"
-  role="dialog"
-  aria-modal="true"
-  aria-labelledby="cancel-modal-title"
-  hidden
->
+<div class="modal" id="cancel-modal" role="dialog" aria-modal="true" aria-labelledby="cancel-modal-title" hidden>
   <div class="modal__overlay" id="modal-overlay"></div>
   <div class="modal__content">
-    <button class="modal__close" id="modal-close" aria-label="閉じる">
-      &#10005;
-    </button>
-    <h2 class="modal__title" id="cancel-modal-title">
-      &#128203; キャンセルポリシー
-    </h2>
-    <div class="modal__body">
-      <p class="modal__intro">
-        ご予約後のキャンセルに関するルールです。ご確認のうえ、ご予約ください。
-      </p>
-      <table class="modal__table">
-        <thead>
-          <tr>
-            <th>キャンセルのタイミング</th>
-            <th>キャンセル料</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>開催日の前日まで</td>
-            <td class="modal__table-free">無料</td>
-          </tr>
-          <tr>
-            <td>当日キャンセル</td>
-            <td class="modal__table-paid">参加費の100%</td>
-          </tr>
-          <tr>
-            <td>無断キャンセル（連絡なし）</td>
-            <td class="modal__table-paid">参加費の100%</td>
-          </tr>
-        </tbody>
-      </table>
-      <ul class="modal__notes">
-        <li>キャンセルは外部予約サービスのマイページよりお手続きください。</li>
-        <li>
-          屋内コートのため、雨天でも原則開催します。悪天候による中止の場合はキャンセル料が発生しません。
-        </li>
-        <li>
-          定員不足などによるイベント中止の際は、前日までにご連絡いたします。その場合もキャンセル料は発生しません。
-        </li>
+    <button class="modal__close" id="modal-close" aria-label="閉じる">&#10005;</button>
+    <h2 class="modal__title" id="cancel-modal-title">&#128221; 参加にあたってのご注意</h2>
+    <p class="modal__intro">注意事項を確認の上ご予約ください</p>
+
+    <section class="modal__section">
+      <h3 class="modal__section-title">キャンセルポリシーについて</h3>
+      <ol class="modal__list modal__list--ol">
+        <li>キャンセルは<strong>前日まで</strong>にお願いいたします。</li>
+        <li>キャンセルは予約サイトから24時間前までは行えます。当日のキャンセルについては有料となりますが、ご連絡ください。</li>
+        <li>参加人数（最小催行人数８名）が集まらない場合や悪天候などにより、イベントを中止することがございます。その際は、<strong>前日までに登録した連絡先に</strong>ご連絡いたします。</li>
+      </ol>
+    </section>
+
+    <section class="modal__section">
+      <h3 class="modal__section-title">当日の負傷について</h3>
+      <ul class="modal__list">
+        <li>当日の負傷については応急処置のみを行います。継続的な治療が必要な場合は、<strong>各自のご負担</strong>となります。</li>
+        <li>傷害保険は各個人で、ご加入をお勧めいたします。</li>
       </ul>
+    </section>
 
-      <h2 class="modal__title" id="cancel-modal-title">
-        &#128203; キャンセルポリシー
-      </h2>
-      <div class="modal__body">
-        <p class="modal__intro">
-          ご予約後のキャンセルに関するルールです。ご確認のうえ、ご予約ください。
-        </p>
-        <table class="modal__table">
-          <thead>
-            <tr>
-              <th>キャンセルのタイミング</th>
-              <th>キャンセル料</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>開催日の前日まで</td>
-              <td class="modal__table-free">無料</td>
-            </tr>
-            <tr>
-              <td>当日キャンセル</td>
-              <td class="modal__table-paid">参加費の100%</td>
-            </tr>
-            <tr>
-              <td>無断キャンセル（連絡なし）</td>
-              <td class="modal__table-paid">参加費の100%</td>
-            </tr>
-          </tbody>
-        </table>
-        <ul class="modal__notes">
-          <li>
-            キャンセルは外部予約サービスのマイページよりお手続きください。
-          </li>
-          <li>
-            屋内コートのため、雨天でも原則開催します。悪天候による中止の場合はキャンセル料が発生しません。
-          </li>
-          <li>
-            定員不足などによるイベント中止の際は、前日までにご連絡いたします。その場合もキャンセル料は発生しません。
-          </li>
-        </ul>
+    <section class="modal__section">
+      <h3 class="modal__section-title">個人情報の取り扱いについて</h3>
+      <ol class="modal__list modal__list--ol">
+        <li>FCメヒカリは、氏名・メールアドレス等のアカウント情報を取得します。</li>
+        <li>取得した個人情報は、個人情報保護方針に従い、適正かつ安全に管理いたします。</li>
+        <li>個人情報は、イベント運営の目的以外には利用いたしません。</li>
+        <li>本イベント参加者の写真および動画を、WEBメディアやSNS等にて無償で使用させていただく場合がございます。スポーツの普及のため、ご協力いただけますと幸いです。（使用を希望されない場合は、事前にお知らせください。）</li>
+      </ol>
+    </section>
 
-        <h2 class="modal__title" id="cancel-modal-title">
-          &#128203; キャンセルポリシー
-        </h2>
-        <div class="modal__body">
-          <p class="modal__intro">
-            ご予約後のキャンセルに関するルールです。ご確認のうえ、ご予約ください。
-          </p>
-          <table class="modal__table">
-            <thead>
-              <tr>
-                <th>キャンセルのタイミング</th>
-                <th>キャンセル料</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>開催日の前日まで</td>
-                <td class="modal__table-free">無料</td>
-              </tr>
-              <tr>
-                <td>当日キャンセル</td>
-                <td class="modal__table-paid">参加費の100%</td>
-              </tr>
-              <tr>
-                <td>無断キャンセル（連絡なし）</td>
-                <td class="modal__table-paid">参加費の100%</td>
-              </tr>
-            </tbody>
-          </table>
-          <ul class="modal__notes">
-            <li>
-              キャンセルは外部予約サービスのマイページよりお手続きください。
-            </li>
-            <li>
-              屋内コートのため、雨天でも原則開催します。悪天候による中止の場合はキャンセル料が発生しません。
-            </li>
-            <li>
-              定員不足などによるイベント中止の際は、前日までにご連絡いたします。その場合もキャンセル料は発生しません。
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
+    <section class="modal__section">
+      <h3 class="modal__section-title">当日のプレーに関して</h3>
+      <ul class="modal__list">
+        <li>暴言、暴力はお止めください。</li>
+        <li>過度なコーチングはご遠慮ください。</li>
+        <li>参加者が委縮するような言動はおやめください。</li>
+        <li>コート内での飲食（飴やガムを含む）は一切禁止致します。</li>
+        <li>悪質な進行の妨げ（ラフプレーや暴言など）については、個人フットサル参加、また当施設ご利用をお断りさせて頂きますので、ご理解、ご協力をお願い致します。</li>
+      </ul>
+    </section>
   </div>
 </div>
