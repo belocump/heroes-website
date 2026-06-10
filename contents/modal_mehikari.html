@@ -1,0 +1,1087 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      メヒカリ健康フィールド in
+      ヒーローズ勿来｜歩いてつながる地域健康コミュニティ
+    </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Noto+Sans+JP:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --green-deep: #2d6a4f;
+        --green-mid: #40916c;
+        --green-light: #74c69d;
+        --green-pale: #d8f3dc;
+        --green-faint: #f0faf3;
+        --warm-white: #fdfbf7;
+        --warm-cream: #f5f0e8;
+        --orange-accent: #e8873a;
+        --orange-light: #f4a261;
+        --brown-text: #3d2c1e;
+        --brown-soft: #6b5744;
+        --coral: #e07a5f;
+        --sky: #7ec8e3;
+        --shadow-soft: 0 4px 24px rgba(45, 106, 79, 0.1);
+        --shadow-card: 0 8px 32px rgba(45, 106, 79, 0.12);
+        --radius: 16px;
+        --radius-lg: 24px;
+      }
+
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        font-size: 16px;
+      }
+
+      body {
+        font-family: "Noto Sans JP", sans-serif;
+        color: var(--brown-text);
+        background: var(--warm-white);
+        line-height: 1.9;
+        font-weight: 400;
+        overflow-x: hidden;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: "Zen Maru Gothic", sans-serif;
+        line-height: 1.5;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      /* ===================== HERO ===================== */
+      .hero {
+        position: relative;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(
+          160deg,
+          var(--green-deep) 0%,
+          var(--green-mid) 40%,
+          var(--green-light) 100%
+        );
+        overflow: hidden;
+        text-align: center;
+        padding: 60px 24px;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            circle at 20% 80%,
+            rgba(255, 255, 255, 0.08) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 20%,
+            rgba(255, 255, 255, 0.06) 0%,
+            transparent 40%
+          );
+      }
+
+      .hero-pattern {
+        position: absolute;
+        inset: 0;
+        opacity: 0.05;
+        background-image:
+          radial-gradient(circle at 25% 25%, white 1px, transparent 1px),
+          radial-gradient(circle at 75% 75%, white 1px, transparent 1px);
+        background-size: 60px 60px;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 700px;
+      }
+
+      .hero-badge {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.18);
+        backdrop-filter: blur(8px);
+        color: white;
+        font-size: 0.85rem;
+        font-weight: 500;
+        padding: 8px 20px;
+        border-radius: 50px;
+        margin-bottom: 28px;
+        letter-spacing: 0.05em;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        animation: fadeSlideDown 0.8s ease both;
+      }
+
+      .hero h1 {
+        color: white;
+        font-size: clamp(2rem, 6vw, 3.2rem);
+        font-weight: 900;
+        margin-bottom: 20px;
+        letter-spacing: 0.02em;
+        animation: fadeSlideDown 0.8s 0.15s ease both;
+      }
+
+      .hero h1 em {
+        font-style: normal;
+        color: var(--orange-light);
+      }
+
+      .hero-sub {
+        color: rgba(255, 255, 255, 0.92);
+        font-size: clamp(1rem, 2.5vw, 1.2rem);
+        font-weight: 400;
+        margin-bottom: 40px;
+        line-height: 2;
+        animation: fadeSlideDown 0.8s 0.3s ease both;
+      }
+
+      .hero-cta {
+        animation: fadeSlideDown 0.8s 0.45s ease both;
+      }
+
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--orange-accent);
+        color: white;
+        font-family: "Zen Maru Gothic", sans-serif;
+        font-size: 1.15rem;
+        font-weight: 700;
+        padding: 18px 40px;
+        border-radius: 60px;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 6px 24px rgba(232, 135, 58, 0.35);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 36px rgba(232, 135, 58, 0.45);
+        background: #d47830;
+      }
+
+      .btn-secondary {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: white;
+        color: var(--green-deep);
+        font-family: "Zen Maru Gothic", sans-serif;
+        font-size: 1rem;
+        font-weight: 700;
+        padding: 16px 36px;
+        border-radius: 60px;
+        border: 2px solid var(--green-deep);
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .btn-secondary:hover {
+        background: var(--green-deep);
+        color: white;
+        transform: translateY(-2px);
+      }
+
+      .hero-scroll {
+        position: absolute;
+        bottom: 32px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 0.8rem;
+        text-align: center;
+        animation: bounce 2s infinite;
+      }
+
+      .hero-scroll span {
+        display: block;
+        margin-bottom: 6px;
+      }
+      .hero-scroll svg {
+        width: 20px;
+        height: 20px;
+      }
+
+      /* ===================== EMPATHY ===================== */
+      .empathy {
+        padding: 100px 24px;
+        background: var(--warm-cream);
+        position: relative;
+      }
+
+      .empathy::before {
+        content: "";
+        position: absolute;
+        top: -60px;
+        left: 0;
+        right: 0;
+        height: 60px;
+        background: linear-gradient(to bottom, transparent, var(--warm-cream));
+      }
+
+      .section-label {
+        display: inline-block;
+        font-family: "Zen Maru Gothic", sans-serif;
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: var(--green-mid);
+        background: var(--green-pale);
+        padding: 6px 16px;
+        border-radius: 50px;
+        margin-bottom: 20px;
+        letter-spacing: 0.08em;
+      }
+
+      .empathy-text {
+        max-width: 720px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .empathy-text h2 {
+        font-size: clamp(1.5rem, 4vw, 2rem);
+        color: var(--brown-text);
+        margin-bottom: 32px;
+        font-weight: 900;
+      }
+
+      .empathy-text h2 em {
+        font-style: normal;
+        color: var(--coral);
+      }
+
+      .worry-list {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        margin-bottom: 36px;
+      }
+
+      .worry-item {
+        background: white;
+        border-radius: var(--radius);
+        padding: 20px 28px;
+        font-size: 1.05rem;
+        color: var(--brown-soft);
+        box-shadow: var(--shadow-soft);
+        text-align: left;
+        position: relative;
+        padding-left: 52px;
+      }
+
+      .worry-item::before {
+        content: "💭";
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1.2rem;
+      }
+
+      .empathy-resolve {
+        font-size: 1.1rem;
+        color: var(--green-deep);
+        font-weight: 700;
+        font-family: "Zen Maru Gothic", sans-serif;
+        line-height: 2;
+      }
+
+      /* ===================== BENEFITS ===================== */
+      .benefits {
+        padding: 100px 24px;
+        background: var(--warm-white);
+      }
+
+      .benefits .container {
+        text-align: center;
+      }
+
+      .benefits h2 {
+        font-size: clamp(1.5rem, 4vw, 2rem);
+        margin-bottom: 12px;
+        font-weight: 900;
+      }
+
+      .benefits-lead {
+        color: var(--brown-soft);
+        font-size: 1rem;
+        margin-bottom: 56px;
+      }
+
+      .benefit-cards {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+      }
+
+      .benefit-card {
+        background: white;
+        border-radius: var(--radius-lg);
+        padding: 44px 36px;
+        box-shadow: var(--shadow-card);
+        text-align: left;
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.3s ease;
+      }
+
+      .benefit-card:hover {
+        transform: translateY(-4px);
+      }
+
+      .benefit-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 6px;
+        height: 100%;
+      }
+
+      .benefit-card:nth-child(1)::before {
+        background: var(--green-mid);
+      }
+      .benefit-card:nth-child(2)::before {
+        background: var(--orange-accent);
+      }
+      .benefit-card:nth-child(3)::before {
+        background: var(--sky);
+      }
+
+      .benefit-num {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        font-family: "Zen Maru Gothic", sans-serif;
+        font-weight: 900;
+        font-size: 1rem;
+        color: white;
+        margin-bottom: 16px;
+      }
+
+      .benefit-card:nth-child(1) .benefit-num {
+        background: var(--green-mid);
+      }
+      .benefit-card:nth-child(2) .benefit-num {
+        background: var(--orange-accent);
+      }
+      .benefit-card:nth-child(3) .benefit-num {
+        background: var(--sky);
+      }
+
+      .benefit-card h3 {
+        font-size: 1.3rem;
+        font-weight: 900;
+        margin-bottom: 4px;
+        color: var(--brown-text);
+      }
+
+      .benefit-tag {
+        display: inline-block;
+        font-size: 0.78rem;
+        font-weight: 700;
+        padding: 3px 10px;
+        border-radius: 50px;
+        margin-bottom: 14px;
+      }
+
+      .benefit-card:nth-child(1) .benefit-tag {
+        background: var(--green-pale);
+        color: var(--green-deep);
+      }
+      .benefit-card:nth-child(2) .benefit-tag {
+        background: #ffecd2;
+        color: #b05c1a;
+      }
+      .benefit-card:nth-child(3) .benefit-tag {
+        background: #ddf1f8;
+        color: #2a7a9b;
+      }
+
+      .benefit-card p {
+        color: var(--brown-soft);
+        font-size: 0.98rem;
+        line-height: 2;
+      }
+
+      /* ===================== FEATURES ===================== */
+      .features {
+        padding: 100px 24px;
+        background: linear-gradient(
+          180deg,
+          var(--green-faint) 0%,
+          var(--warm-white) 100%
+        );
+      }
+
+      .features h2 {
+        text-align: center;
+        font-size: clamp(1.5rem, 4vw, 2rem);
+        margin-bottom: 48px;
+        font-weight: 900;
+      }
+
+      .feature-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .feature-item {
+        background: white;
+        border-radius: var(--radius);
+        padding: 28px 24px;
+        text-align: center;
+        box-shadow: var(--shadow-soft);
+        transition: transform 0.3s ease;
+      }
+
+      .feature-item:hover {
+        transform: translateY(-3px);
+      }
+
+      .feature-icon {
+        font-size: 2.2rem;
+        margin-bottom: 12px;
+      }
+
+      .feature-item h4 {
+        font-size: 1rem;
+        font-weight: 700;
+        margin-bottom: 8px;
+        color: var(--green-deep);
+      }
+
+      .feature-item p {
+        font-size: 0.85rem;
+        color: var(--brown-soft);
+        line-height: 1.8;
+      }
+
+      /* ===================== TRUST ===================== */
+      .trust {
+        padding: 100px 24px;
+        background: var(--warm-cream);
+      }
+
+      .trust h2 {
+        text-align: center;
+        font-size: clamp(1.5rem, 4vw, 2rem);
+        margin-bottom: 48px;
+        font-weight: 900;
+      }
+
+      .trust-items {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        max-width: 720px;
+        margin: 0 auto;
+      }
+
+      .trust-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+        background: white;
+        border-radius: var(--radius);
+        padding: 24px 28px;
+        box-shadow: var(--shadow-soft);
+      }
+
+      .trust-check {
+        flex-shrink: 0;
+        width: 36px;
+        height: 36px;
+        background: var(--green-pale);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--green-deep);
+        font-weight: 900;
+        font-size: 1rem;
+      }
+
+      .trust-item p {
+        font-size: 0.98rem;
+        color: var(--brown-soft);
+        line-height: 1.9;
+      }
+
+      .trust-item p strong {
+        color: var(--brown-text);
+      }
+
+      /* ===================== PRICE ===================== */
+      .price {
+        padding: 100px 24px;
+        background: var(--warm-white);
+      }
+
+      .price h2 {
+        text-align: center;
+        font-size: clamp(1.5rem, 4vw, 2rem);
+        margin-bottom: 16px;
+        font-weight: 900;
+      }
+
+      .price-lead {
+        text-align: center;
+        color: var(--brown-soft);
+        margin-bottom: 48px;
+      }
+
+      .price-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 24px;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .price-card {
+        background: white;
+        border-radius: var(--radius-lg);
+        padding: 36px 28px;
+        text-align: center;
+        box-shadow: var(--shadow-card);
+        border: 2px solid transparent;
+        transition: all 0.3s ease;
+      }
+
+      .price-card.featured {
+        border-color: var(--orange-accent);
+        position: relative;
+      }
+
+      .price-card.featured::after {
+        content: "おすすめ";
+        position: absolute;
+        top: -12px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--orange-accent);
+        color: white;
+        font-family: "Zen Maru Gothic", sans-serif;
+        font-size: 0.78rem;
+        font-weight: 700;
+        padding: 4px 16px;
+        border-radius: 50px;
+      }
+
+      .price-card h3 {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--green-deep);
+        margin-bottom: 8px;
+      }
+
+      .price-amount {
+        font-family: "Zen Maru Gothic", sans-serif;
+        font-size: 2.2rem;
+        font-weight: 900;
+        color: var(--brown-text);
+        margin-bottom: 4px;
+      }
+
+      .price-amount small {
+        font-size: 0.9rem;
+        font-weight: 500;
+      }
+
+      .price-note {
+        font-size: 0.82rem;
+        color: var(--brown-soft);
+        margin-bottom: 16px;
+      }
+
+      .price-desc {
+        font-size: 0.88rem;
+        color: var(--brown-soft);
+        line-height: 1.8;
+      }
+
+      /* ===================== CTA FINAL ===================== */
+      .cta-final {
+        padding: 100px 24px;
+        background: linear-gradient(
+          160deg,
+          var(--green-deep) 0%,
+          var(--green-mid) 60%,
+          var(--green-light) 100%
+        );
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .cta-final::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          circle at 30% 70%,
+          rgba(255, 255, 255, 0.06) 0%,
+          transparent 50%
+        );
+      }
+
+      .cta-final-content {
+        position: relative;
+        z-index: 2;
+        max-width: 640px;
+        margin: 0 auto;
+      }
+
+      .cta-final h2 {
+        color: white;
+        font-size: clamp(1.5rem, 4vw, 2.2rem);
+        font-weight: 900;
+        margin-bottom: 24px;
+      }
+
+      .cta-final-text {
+        color: rgba(255, 255, 255, 0.88);
+        font-size: 1.05rem;
+        line-height: 2.1;
+        margin-bottom: 40px;
+      }
+
+      .cta-buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .btn-line {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: #06c755;
+        color: white;
+        font-family: "Zen Maru Gothic", sans-serif;
+        font-size: 1rem;
+        font-weight: 700;
+        padding: 16px 36px;
+        border-radius: 60px;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 6px 20px rgba(6, 199, 85, 0.3);
+      }
+
+      .btn-line:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(6, 199, 85, 0.4);
+      }
+
+      .cta-note {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 0.82rem;
+        margin-top: 24px;
+      }
+
+      /* ===================== FOOTER ===================== */
+      footer {
+        padding: 48px 24px;
+        background: #1a3a2a;
+        color: rgba(255, 255, 255, 0.6);
+        text-align: center;
+        font-size: 0.85rem;
+      }
+
+      footer .org-name {
+        color: rgba(255, 255, 255, 0.85);
+        font-family: "Zen Maru Gothic", sans-serif;
+        font-weight: 700;
+        font-size: 1rem;
+        margin-bottom: 8px;
+      }
+
+      footer .location {
+        margin-bottom: 20px;
+      }
+
+      footer .copy {
+        font-size: 0.75rem;
+        color: rgba(255, 255, 255, 0.35);
+      }
+
+      /* ===================== ANIMATIONS ===================== */
+      @keyframes fadeSlideDown {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateX(-50%) translateY(0);
+        }
+        50% {
+          transform: translateX(-50%) translateY(8px);
+        }
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition:
+          opacity 0.7s ease,
+          transform 0.7s ease;
+      }
+
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* ===================== RESPONSIVE ===================== */
+      @media (max-width: 640px) {
+        .hero {
+          min-height: 90vh;
+          padding: 48px 20px;
+        }
+        .btn-primary {
+          font-size: 1rem;
+          padding: 16px 32px;
+        }
+        .empathy,
+        .benefits,
+        .features,
+        .trust,
+        .price,
+        .cta-final {
+          padding: 72px 20px;
+        }
+        .feature-grid {
+          grid-template-columns: 1fr;
+        }
+        .price-cards {
+          grid-template-columns: 1fr;
+        }
+        .benefit-card {
+          padding: 32px 24px;
+        }
+        .worry-item {
+          font-size: 0.95rem;
+          padding: 16px 20px 16px 46px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ========== HERO ========== -->
+    <section class="hero">
+      <div class="hero-pattern"></div>
+      <div class="hero-content">
+        <div class="hero-badge">🏃‍♀️ いわき市勿来で始まる新しい健康習慣</div>
+        <h1><em>歩くだけ</em>で、<br />友だちができた。</h1>
+        <p class="hero-sub">
+          運動が苦手でも大丈夫。<br />
+          勿来で始まる、歩いてつながる健康コミュニティ。
+        </p>
+        <div class="hero-cta">
+          <a href="#cta" class="btn-primary"> まずは無料で体験してみる → </a>
+        </div>
+      </div>
+      <div class="hero-scroll">
+        <span>scroll</span>
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path d="M12 5v14M5 12l7 7 7-7" />
+        </svg>
+      </div>
+    </section>
+
+    <!-- ========== EMPATHY ========== -->
+    <section class="empathy">
+      <div class="empathy-text reveal">
+        <span class="section-label">こんなお悩み、ありませんか？</span>
+        <h2>なんとなく続く、<em>モヤモヤ</em>の正体。</h2>
+        <div class="worry-list">
+          <div class="worry-item">最近、外に出る理由がなくなってきた</div>
+          <div class="worry-item">体を動かしたいけど、スポーツは苦手だし…</div>
+          <div class="worry-item">
+            誰かとおしゃべりしたいけど、きっかけがない
+          </div>
+          <div class="worry-item">ジムは気が引ける、一人の散歩は続かない</div>
+        </div>
+        <p class="empathy-resolve">
+          笑いながら体を動かせて、<br />帰り道にちょっと元気になれる場所——<br />
+          そんな<strong>"居場所"</strong>が、勿来に生まれました。
+        </p>
+      </div>
+    </section>
+
+    <!-- ========== BENEFITS ========== -->
+    <section class="benefits">
+      <div class="container">
+        <span class="section-label">3つの特長</span>
+        <h2>ここが、ちょっと違います。</h2>
+        <p class="benefits-lead">
+          スポーツ教室でもジムでもない、新しいかたちの健康コミュニティ。
+        </p>
+
+        <div class="benefit-cards">
+          <div class="benefit-card reveal">
+            <div class="benefit-num">1</div>
+            <h3>楽しんでいたら、健康になっていた</h3>
+            <span class="benefit-tag">健康価値</span>
+            <p>
+              中心プログラムは「ウォーキングフットボール」。走らない・ぶつからない・歩くだけのやさしいスポーツです。女性専用回・初心者専用回があるので、運動経験ゼロでも安心。フレイル予防や運動習慣づくりにもつながります。
+            </p>
+          </div>
+
+          <div class="benefit-card reveal">
+            <div class="benefit-num">2</div>
+            <h3>運動は3割、おしゃべりが7割</h3>
+            <span class="benefit-tag">社会的価値</span>
+            <p>
+              体を動かしたあとは、みんなでゆっくり談話する「自分カフェ」タイム。一人で来ても、帰るころには知り合いが増えている。そんな"会いに行きたくなる場所"です。
+            </p>
+          </div>
+
+          <div class="benefit-card reveal">
+            <div class="benefit-num">3</div>
+            <h3>地域まるごと、あなたの健康を応援</h3>
+            <span class="benefit-tag">地域価値</span>
+            <p>
+              地元スーパーと連携した健康食の提案、保険会社による健康測定会、地域スポーツチームとの交流イベントなど、暮らしの中で自然と健康になれる仕組みがあります。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== FEATURES ========== -->
+    <section class="features">
+      <div class="container">
+        <span class="section-label">安心のポイント</span>
+        <h2>はじめてでも大丈夫な理由</h2>
+
+        <div class="feature-grid">
+          <div class="feature-item reveal">
+            <div class="feature-icon">👟</div>
+            <h4>歩くだけでOK</h4>
+            <p>
+              走らない・ぶつからないルール。体力に自信がなくても楽しめます。
+            </p>
+          </div>
+          <div class="feature-item reveal">
+            <div class="feature-icon">👩</div>
+            <h4>女性専用・初心者専用回</h4>
+            <p>
+              レベルや性別に合わせたセッションで、心理的なハードルを下げます。
+            </p>
+          </div>
+          <div class="feature-item reveal">
+            <div class="feature-icon">🗓️</div>
+            <h4>週2〜4回の定期開催</h4>
+            <p>
+              無理のないペースで、生活の一部に。買い物ついでに立ち寄れます。
+            </p>
+          </div>
+          <div class="feature-item reveal">
+            <div class="feature-icon">💰</div>
+            <h4>初回無料・ワンコイン参加</h4>
+            <p>1回500円〜。まずは気軽に試して、合わなければやめてもOK。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== TRUST ========== -->
+    <section class="trust">
+      <div class="container">
+        <span class="section-label">信頼と実績</span>
+        <h2>選ばれる理由があります</h2>
+
+        <div class="trust-items">
+          <div class="trust-item reveal">
+            <div class="trust-check">✓</div>
+            <p>
+              <strong>英国バーミンガムの先進モデルを日本初導入。</strong
+              >ウォーキングフットボールクラブの成功事例を体系的に取り入れた、健康×福祉×コミュニティの統合プログラムです。
+            </p>
+          </div>
+          <div class="trust-item reveal">
+            <div class="trust-check">✓</div>
+            <p>
+              <strong>運営は「一般社団法人ふくしま健康デザイン」。</strong
+              >地域の健康課題に向き合う専門チームが、安全・安心のプログラムを設計・運営します。
+            </p>
+          </div>
+          <div class="trust-item reveal">
+            <div class="trust-check">✓</div>
+            <p>
+              <strong>行政・医療・福祉機関との連携。</strong
+              >いわき市のまちづくり活動支援事業として、保健センターや地域包括支援センターとも協力しています。
+            </p>
+          </div>
+          <div class="trust-item reveal">
+            <div class="trust-check">✓</div>
+            <p>
+              <strong>会場は勿来の「ヒーローズ」。</strong
+              >お買い物ついでに立ち寄れる、生活圏内の身近な場所で開催しています。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== PRICE ========== -->
+    <section class="price">
+      <div class="container">
+        <span class="section-label">料金プラン</span>
+        <h2>続けやすい料金です</h2>
+        <p class="price-lead">
+          まずは気軽に。続けたくなったら、お得な会員プランも。
+        </p>
+
+        <div class="price-cards">
+          <div class="price-card reveal">
+            <h3>はじめての方</h3>
+            <div class="price-amount"><small>初回</small> 無料</div>
+            <p class="price-note">お試し体験</p>
+            <p class="price-desc">
+              まずは一度、気軽に遊びに来てください。持ち物は動きやすい服装と室内シューズだけ。
+            </p>
+          </div>
+
+          <div class="price-card featured reveal">
+            <h3>都度参加</h3>
+            <div class="price-amount">500<small>円〜 / 回</small></div>
+            <p class="price-note">入口プラン</p>
+            <p class="price-desc">
+              好きなときに、好きなだけ。予約して参加するシンプルなプランです。
+            </p>
+          </div>
+
+          <div class="price-card reveal">
+            <h3>月額会員</h3>
+            <div class="price-amount">3,000<small>円〜 / 月</small></div>
+            <p class="price-note">通い放題でお得</p>
+            <p class="price-desc">
+              週に何度でも参加OK。仲間との交流もぐっと深まります。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CTA FINAL ========== -->
+    <section class="cta-final" id="cta">
+      <div class="cta-final-content reveal">
+        <span
+          class="section-label"
+          style="background: rgba(255, 255, 255, 0.15); color: white"
+          >さあ、はじめましょう</span
+        >
+        <h2>難しいことは、<br />何もありません。</h2>
+        <p class="cta-final-text">
+          歩けるなら、それだけで十分です。<br />
+          まずは一度、ヒーローズ勿来に遊びに来てみてください。<br />
+          あなたの「ちょっと行ってみようかな」が、<br />
+          新しい毎日のはじまりになります。
+        </p>
+        <div class="cta-buttons">
+          <a href="#" class="btn-primary" style="font-size: 1.1rem">
+            まずは無料で体験してみる →
+          </a>
+          <a href="#" class="btn-line">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"
+              />
+            </svg>
+            LINE登録でイベント情報を受け取る
+          </a>
+        </div>
+        <p class="cta-note">📍 会場：ヒーローズ 勿来店（福島県いわき市南部）</p>
+      </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer>
+      <p class="org-name">一般社団法人ふくしま健康デザイン</p>
+      <p class="location">
+        メヒカリ健康フィールド in ヒーローズ勿来<br />福島県いわき市南部（勿来地区）
+      </p>
+      <p class="copy">&copy; 2025 ふくしま健康デザイン. All rights reserved.</p>
+    </footer>
+
+    <!-- ========== SCROLL REVEAL ========== -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const reveals = document.querySelectorAll(".reveal");
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry, i) => {
+              if (entry.isIntersecting) {
+                setTimeout(() => {
+                  entry.target.classList.add("visible");
+                }, i * 100);
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.15 },
+        );
+        reveals.forEach((el) => observer.observe(el));
+      });
+    </script>
+  </body>
+</html>
