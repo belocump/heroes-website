@@ -1,0 +1,728 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ウォーキングフットボール｜ヒーローズ勿来</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --colors-primary: #0075de;
+        --colors-primary-active: #005bab;
+        --colors-secondary: #218339;
+        --colors-canvas: #ffffff;
+        --colors-canvas-soft: #f6f5f4;
+        --colors-surface: #ffffff;
+        --colors-hairline: #e6e6e6;
+        --colors-ink: #000000;
+        --colors-ink-secondary: #31302e;
+        --colors-ink-muted: #615d59;
+        --colors-accent-sky: #62aef0;
+        --colors-accent-green: #1aae39;
+        --colors-accent-orange: #dd5b00;
+        --colors-accent-teal: #2a9d99;
+        --rounded-md: 8px;
+        --rounded-lg: 12px;
+        --rounded-full: 9999px;
+        --spacing-xs: 8px;
+        --spacing-sm: 12px;
+        --spacing-md: 16px;
+        --spacing-lg: 24px;
+        --spacing-xxl: 32px;
+        --shadow-soft:
+          0 0.175px 1.041px rgba(0, 0, 0, 0.01),
+          0 0.8px 2.925px rgba(0, 0, 0, 0.02),
+          0 2.025px 7.847px rgba(0, 0, 0, 0.027), 0 4px 18px rgba(0, 0, 0, 0.04);
+      }
+
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family:
+          "Inter",
+          -apple-system,
+          system-ui,
+          "Helvetica Neue",
+          sans-serif;
+        color: var(--colors-ink);
+        background: var(--colors-canvas-soft);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* ───── Nav ───── */
+      .nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: var(--spacing-md) var(--spacing-lg);
+        background: var(--colors-canvas);
+        border-bottom: 1px solid var(--colors-hairline);
+      }
+
+      .nav-logo {
+        font-size: 20px;
+        font-weight: 700;
+        letter-spacing: -0.5px;
+        color: var(--colors-ink);
+        text-decoration: none;
+      }
+
+      .nav-cta {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 15px;
+        font-weight: 500;
+        color: #ffffff;
+        background: var(--colors-primary);
+        border: none;
+        border-radius: var(--rounded-md);
+        text-decoration: none;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+
+      .nav-cta:hover {
+        background: var(--colors-primary-active);
+      }
+
+      /* ───── Hero ───── */
+      .hero {
+        position: relative;
+        background: var(--colors-secondary);
+        padding: 100px var(--spacing-lg) 80px;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            ellipse at 30% 20%,
+            rgba(255, 255, 255, 0.08) 0%,
+            transparent 60%
+          ),
+          radial-gradient(
+            ellipse at 80% 80%,
+            rgba(0, 0, 0, 0.1) 0%,
+            transparent 50%
+          );
+        pointer-events: none;
+      }
+
+      .hero-inner {
+        position: relative;
+        max-width: 1080px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 48px;
+      }
+
+      .hero-content {
+        flex: 1;
+        max-width: 520px;
+      }
+
+      .hero-badge {
+        display: inline-block;
+        padding: 4px 14px;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.125px;
+        color: var(--colors-primary);
+        background: #ffffff;
+        border-radius: var(--rounded-full);
+        margin-bottom: var(--spacing-md);
+      }
+
+      .hero-title {
+        font-size: 54px;
+        font-weight: 700;
+        letter-spacing: -1.875px;
+        color: #eafe0f;
+        line-height: 1.1;
+        margin-bottom: var(--spacing-md);
+      }
+
+      .hero-sub {
+        font-size: 18px;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.85);
+        margin-bottom: var(--spacing-lg);
+      }
+
+      .hero-buttons {
+        display: flex;
+        gap: var(--spacing-sm);
+        flex-wrap: wrap;
+      }
+
+      .btn-primary {
+        display: inline-block;
+        padding: 14px 32px;
+        font-size: 16px;
+        font-weight: 500;
+        color: #ffffff;
+        background: var(--colors-primary);
+        border: none;
+        border-radius: var(--rounded-full);
+        text-decoration: none;
+        cursor: pointer;
+        transition:
+          background 0.2s,
+          transform 0.1s;
+      }
+
+      .btn-primary:hover {
+        background: var(--colors-primary-active);
+      }
+
+      .btn-primary:active {
+        transform: scale(0.95);
+      }
+
+      .btn-secondary {
+        display: inline-block;
+        padding: 14px 32px;
+        font-size: 16px;
+        font-weight: 500;
+        color: var(--colors-ink);
+        background: #ffffff;
+        border: none;
+        border-radius: var(--rounded-full);
+        text-decoration: none;
+        cursor: pointer;
+        box-shadow: var(--shadow-soft);
+        transition: transform 0.1s;
+      }
+
+      .btn-secondary:active {
+        transform: scale(0.95);
+      }
+
+      .hero-image {
+        flex-shrink: 0;
+        width: 452px;
+        height: 442px;
+        border-radius: 210px;
+        object-fit: cover;
+      }
+
+      /* ───── Section Common ───── */
+      .section {
+        padding: 80px var(--spacing-lg);
+      }
+
+      .section--alt {
+        background: var(--colors-canvas-soft);
+      }
+
+      .section--white {
+        background: var(--colors-canvas);
+        border-top: 1px solid var(--colors-hairline);
+        border-bottom: 1px solid var(--colors-hairline);
+      }
+
+      .section-inner {
+        max-width: 1080px;
+        margin: 0 auto;
+      }
+
+      .section-heading {
+        font-size: 40px;
+        font-weight: 700;
+        letter-spacing: -1px;
+        text-align: center;
+        margin-bottom: var(--spacing-xs);
+      }
+
+      .section-sub {
+        font-size: 16px;
+        font-weight: 400;
+        color: var(--colors-ink-muted);
+        text-align: center;
+        max-width: 640px;
+        margin: 0 auto var(--spacing-lg);
+        line-height: 1.7;
+      }
+
+      /* ───── Card Grid ───── */
+      .card-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--spacing-lg);
+        margin-top: var(--spacing-lg);
+      }
+
+      /* ───── Event Info Cards ───── */
+      .info-card {
+        background: var(--colors-surface);
+        border: 1px solid var(--colors-hairline);
+        border-radius: var(--rounded-lg);
+        padding: var(--spacing-lg);
+      }
+
+      .info-card-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: var(--rounded-lg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        margin-bottom: var(--spacing-md);
+      }
+
+      .info-card-icon--date {
+        background: rgba(0, 117, 222, 0.08);
+      }
+
+      .info-card-icon--place {
+        background: rgba(42, 157, 153, 0.1);
+      }
+
+      .info-card-icon--host {
+        background: rgba(26, 174, 57, 0.1);
+      }
+
+      .info-card-label {
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0.125px;
+        color: var(--colors-ink-muted);
+        margin-bottom: 4px;
+      }
+
+      .info-card-value {
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: -0.25px;
+        margin-bottom: 6px;
+      }
+
+      .info-card-detail {
+        font-size: 15px;
+        font-weight: 400;
+        color: var(--colors-ink-muted);
+        line-height: 1.6;
+      }
+
+      /* ───── Feature Cards ───── */
+      .feature-card {
+        background: var(--colors-surface);
+        border: 1px solid var(--colors-hairline);
+        border-radius: var(--rounded-lg);
+        overflow: hidden;
+      }
+
+      .feature-card-bar {
+        height: 8px;
+      }
+
+      .feature-card-bar--sky {
+        background: var(--colors-accent-sky);
+      }
+
+      .feature-card-bar--green {
+        background: var(--colors-accent-green);
+      }
+
+      .feature-card-bar--orange {
+        background: var(--colors-accent-orange);
+      }
+
+      .feature-card-body {
+        padding: var(--spacing-lg);
+      }
+
+      .feature-card-title {
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: -0.25px;
+        margin-bottom: var(--spacing-xs);
+      }
+
+      .feature-card-desc {
+        font-size: 16px;
+        font-weight: 400;
+        color: var(--colors-ink-muted);
+        line-height: 1.7;
+      }
+
+      /* ───── Notes Section ───── */
+      .notes-list {
+        max-width: 680px;
+        margin: var(--spacing-lg) auto 0;
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-lg);
+      }
+
+      .note-card {
+        background: var(--colors-surface);
+        border: 1px solid var(--colors-hairline);
+        border-radius: var(--rounded-lg);
+        padding: var(--spacing-lg) var(--spacing-xxl);
+      }
+
+      .note-card-title {
+        font-size: 15px;
+        font-weight: 900;
+        color: var(--colors-primary);
+        margin-bottom: var(--spacing-sm);
+      }
+
+      .note-card-body {
+        font-size: 15px;
+        font-weight: 400;
+        color: var(--colors-ink-secondary);
+        line-height: 1.8;
+      }
+
+      .note-card-body ol,
+      .note-card-body ul {
+        padding-left: 1.2em;
+      }
+
+      .note-card-body li {
+        margin-bottom: 6px;
+      }
+
+      /* ───── CTA Band ───── */
+      .cta-band {
+        background: var(--colors-canvas);
+        padding: 80px var(--spacing-lg);
+        text-align: center;
+      }
+
+      .cta-band-heading {
+        font-size: 40px;
+        font-weight: 700;
+        letter-spacing: -1px;
+        margin-bottom: var(--spacing-xs);
+      }
+
+      .cta-band-text {
+        font-size: 16px;
+        color: var(--colors-ink-muted);
+        margin-bottom: var(--spacing-lg);
+      }
+
+      /* ───── Footer ───── */
+      .footer {
+        background: var(--colors-canvas-soft);
+        padding: var(--spacing-xxl) var(--spacing-lg);
+        text-align: center;
+        font-size: 14px;
+        color: var(--colors-ink-muted);
+      }
+
+      .footer a {
+        color: var(--colors-primary);
+        text-decoration: none;
+      }
+
+      .footer a:hover {
+        text-decoration: underline;
+      }
+
+      /* ───── Responsive: 840px ───── */
+      @media (max-width: 840px) {
+        .hero-title {
+          font-size: 40px;
+        }
+
+        .section-heading,
+        .cta-band-heading {
+          font-size: 32px;
+        }
+
+        .card-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .hero-image {
+          width: 340px;
+          height: 332px;
+          border-radius: 170px;
+        }
+      }
+
+      /* ───── Responsive: 600px ───── */
+      @media (max-width: 600px) {
+        .hero {
+          padding: 60px var(--spacing-md) 48px;
+        }
+
+        .hero-inner {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .hero-content {
+          max-width: 100%;
+        }
+
+        .hero-buttons {
+          justify-content: center;
+        }
+
+        .hero-title {
+          font-size: 32px;
+          letter-spacing: -1px;
+        }
+
+        .hero-sub {
+          font-size: 16px;
+        }
+
+        .hero-image {
+          width: 280px;
+          height: 274px;
+          border-radius: 140px;
+        }
+
+        .section {
+          padding: 56px var(--spacing-md);
+        }
+
+        .section-heading,
+        .cta-band-heading {
+          font-size: 26px;
+        }
+
+        .card-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .btn-primary,
+        .btn-secondary {
+          width: 100%;
+          text-align: center;
+        }
+
+        .hero-buttons {
+          flex-direction: column;
+          width: 100%;
+        }
+
+        .cta-band {
+          padding: 56px var(--spacing-md);
+        }
+
+        .note-card {
+          padding: var(--spacing-lg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Nav -->
+    <nav class="nav">
+      <a href="#" class="nav-logo">ヒーローズ勿来</a>
+      <a href="#apply" class="nav-cta">参加申込</a>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-inner">
+        <img
+          src="assets/hero-image.jpg"
+          alt="ウォーキングフットボールの様子"
+          class="hero-image"
+        />
+        <div class="hero-content">
+          <span class="hero-badge">最高の週末！</span>
+          <h1 class="hero-title">ウォーキング<br />フットボール</h1>
+          <p class="hero-sub">走らないから、誰でもサッカーを楽しめる！</p>
+          <div class="hero-buttons">
+            <a href="#apply" class="btn-primary">今すぐ申し込む</a>
+            <a href="#about" class="btn-secondary">詳しく見る</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Event Info -->
+    <section id="about" class="section section--alt">
+      <div class="section-inner">
+        <h2 class="section-heading">イベント概要</h2>
+        <p class="section-sub">
+          個人でその場に集まった人たちで即席チームを作り、ウォーキングフットボールの試合を楽しむサービスです。うまい下手は関係なし。あなたのペースで参加できます。
+        </p>
+        <div class="card-grid">
+          <div class="info-card">
+            <div class="info-card-icon info-card-icon--date">📅</div>
+            <div class="info-card-label">日時</div>
+            <div class="info-card-value">毎週土曜日</div>
+            <div class="info-card-detail">
+              10:00 〜 11:00<br />11:00 〜 12:00
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-card-icon info-card-icon--place">📍</div>
+            <div class="info-card-label">場所</div>
+            <div class="info-card-value">ヒーローズ勿来</div>
+            <div class="info-card-detail">
+              福島県いわき市勿来町窪田十條3-2<br />マルトＳＣ勿来十条
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-card-icon info-card-icon--host">⚽</div>
+            <div class="info-card-label">主催</div>
+            <div class="info-card-value">ヒーローズ勿来</div>
+            <div class="info-card-value">FCメヒカリ</div>
+            <div class="info-card-detail">
+              運営: 株式会社HMJ<br />業務提携: （一社）ふくしま健康デザイン
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="section section--white">
+      <div class="section-inner">
+        <h2 class="section-heading">3つのポイント</h2>
+        <div class="card-grid">
+          <div class="feature-card">
+            <div class="feature-card-bar feature-card-bar--sky"></div>
+            <div class="feature-card-body">
+              <h3 class="feature-card-title">考えて歩く</h3>
+              <p class="feature-card-desc">
+                走らずに戦術とパスの質だけで勝負する新スタイル
+              </p>
+            </div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-card-bar feature-card-bar--green"></div>
+            <div class="feature-card-body">
+              <h3 class="feature-card-title">雨でも開催</h3>
+              <p class="feature-card-desc">
+                屋内コートだから天候に左右されません。週末の予定が確実に決まる安心感
+              </p>
+            </div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-card-bar feature-card-bar--orange"></div>
+            <div class="feature-card-body">
+              <h3 class="feature-card-title">スポーツ保険</h3>
+              <p class="feature-card-desc">
+                参加費にはスポーツ保険等の費用が含まれます。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Notes -->
+    <section class="section section--alt">
+      <div class="section-inner">
+        <h2 class="section-heading">参加にあたってのご注意</h2>
+        <p class="section-sub">必ずお読みください</p>
+        <div class="notes-list">
+          <div class="note-card">
+            <div class="note-card-title">個人情報の取り扱いについて</div>
+            <div class="note-card-body">
+              <ol>
+                <li>
+                  イベントに際し、氏名・メールアドレス等のアカウント情報を取得します。
+                </li>
+                <li>
+                  取得した個人情報は、個人情報保護方針に従い、適正かつ安全に管理いたします。
+                </li>
+                <li>
+                  個人情報は、イベント運営の目的以外には利用いたしません。
+                </li>
+                <li>
+                  本イベント参加者の写真および動画を、WEBメディアやSNS等にて無償で使用させていただく場合がございます。スポーツの普及のため、ご協力いただけますと幸いです。（使用を希望されない場合は、事前にお知らせください。）
+                </li>
+              </ol>
+            </div>
+          </div>
+          <div class="note-card">
+            <div class="note-card-title">当日のプレーに関して</div>
+            <div class="note-card-body">
+              <ul>
+                <li>暴言、暴力はお止めください。</li>
+                <li>過度なコーチングはご遠慮ください。</li>
+                <li>参加者が委縮するような言動はおやめください。</li>
+                <li>コート内での飲食（飴やガムを含む）は一切禁止致します。</li>
+                <li>
+                  悪質な進行の妨げ（ラフプレーや暴言など）については、個人フットサル参加、また当施設ご利用をお断りさせて頂きますので、ご理解、ご協力をお願い致します。
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="note-card">
+            <div class="note-card-title">当日の負傷について</div>
+            <div class="note-card-body">
+              <ul>
+                <li>
+                  当日の負傷については応急処置のみを行います。継続的な治療が必要な場合は、各自のご負担となります。
+                </li>
+                <li>傷害保険は各個人で、ご加入をお勧めいたします。</li>
+              </ul>
+            </div>
+          </div>
+          <div class="note-card">
+            <div class="note-card-title">キャンセルポリシーについて</div>
+            <div class="note-card-body">
+              <ol>
+                <li>キャンセルは前日までにお願いいたします。</li>
+                <li>
+                  キャンセルは予約サイトから24時間前までは行えます。当日のキャンセルについては有料となりますが、ご連絡ください。
+                </li>
+                <li>
+                  参加人数（最小催行人数８名）が集まらない場合や悪天候などにより、イベントを中止することがございます。その際は、前日までに登録した連絡先にご連絡いたします。
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Band -->
+    <section id="apply" class="cta-band">
+      <h2 class="cta-band-heading">参加しませんか？</h2>
+      <p class="cta-band-text">
+        定員になり次第、締め切りとなります。お早めにお申し込みください。
+      </p>
+      <a href="mailto:info@fc-mehikari.org" class="btn-primary">参加申込</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>
+        &copy; 2026 一般社団法人ふくしま健康デザイン｜<a
+          href="mailto:info@fc-mehikari.org"
+          >info@fc-mehikari.org</a
+        >
+      </p>
+    </footer>
+  </body>
+</html>

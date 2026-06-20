@@ -1,0 +1,772 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Over30 個サイチ｜ヒーローズ勿来</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --ink: #111111;
+        --canvas: #ffffff;
+        --soft-cloud: #f5f5f5;
+        --hairline: #e5e5e5;
+        --mute: #707072;
+        --charcoal: #39393b;
+        --hero-green: #218339;
+        --hero-yellow: #eafe0f;
+        --accent-sky: #62aef0;
+        --accent-green: #1aae39;
+        --accent-orange: #dd5b00;
+        --accent-teal: #2a9d99;
+        --primary-blue: #0075de;
+        --primary-blue-active: #005bab;
+        --rounded-lg: 30px;
+        --rounded-md: 24px;
+        --rounded-card: 0px;
+        --spacing-section: 48px;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+        color: var(--ink);
+        background: var(--canvas);
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* ── Navigation ── */
+      .nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: var(--canvas);
+        box-shadow: inset 0 -1px 0 var(--hairline);
+        padding: 0 40px;
+        height: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .nav-logo {
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--ink);
+        letter-spacing: -0.5px;
+        text-decoration: none;
+      }
+
+      .nav-cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--ink);
+        color: var(--canvas);
+        font-size: 14px;
+        font-weight: 500;
+        padding: 10px 24px;
+        border-radius: var(--rounded-lg);
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+        transition: opacity 0.15s;
+      }
+
+      .nav-cta:hover {
+        opacity: 0.85;
+      }
+
+      .nav-cta:active {
+        transform: scale(0.95);
+      }
+
+      /* ── Hero ── */
+      .hero {
+        background: var(--hero-green);
+        padding: 96px 40px 80px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          ellipse at 30% 20%,
+          rgba(255, 255, 255, 0.06) 0%,
+          transparent 60%
+        );
+        pointer-events: none;
+      }
+
+      .hero-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 48px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero-content {
+        flex: 1;
+        max-width: 600px;
+      }
+
+      .hero-badge {
+        display: inline-block;
+        background: var(--canvas);
+        color: var(--primary-blue);
+        font-size: 12px;
+        font-weight: 600;
+        padding: 6px 16px;
+        border-radius: var(--rounded-lg);
+        letter-spacing: 0.125px;
+        margin-bottom: 24px;
+        text-transform: uppercase;
+      }
+
+      .hero-title {
+        font-family: "Bebas Neue", "Arial Black", sans-serif;
+        font-size: 96px;
+        line-height: 0.9;
+        color: var(--hero-yellow);
+        letter-spacing: -1px;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+      }
+
+      .hero-subtitle {
+        font-size: 18px;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.85);
+        line-height: 1.6;
+        margin-bottom: 36px;
+        max-width: 480px;
+      }
+
+      .hero-buttons {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--ink);
+        color: var(--canvas);
+        font-size: 16px;
+        font-weight: 500;
+        padding: 16px 32px;
+        border-radius: var(--rounded-lg);
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+        height: 48px;
+        transition: opacity 0.15s;
+      }
+
+      .btn-primary:hover {
+        opacity: 0.85;
+      }
+
+      .btn-primary:active {
+        transform: scale(0.95);
+      }
+
+      .btn-secondary {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--canvas);
+        color: var(--ink);
+        font-size: 16px;
+        font-weight: 500;
+        padding: 16px 32px;
+        border-radius: var(--rounded-lg);
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+        height: 48px;
+        transition: opacity 0.15s;
+      }
+
+      .btn-secondary:active {
+        transform: scale(0.95);
+      }
+
+      .hero-image-wrap {
+        flex-shrink: 0;
+      }
+
+      .hero-image {
+        width: 452px;
+        height: 442px;
+        border-radius: 210px;
+        object-fit: cover;
+        display: block;
+      }
+
+      /* ── Sections ── */
+      .section {
+        padding: 80px 40px;
+      }
+
+      .section--soft {
+        background: var(--soft-cloud);
+      }
+
+      .section-inner {
+        max-width: 1080px;
+        margin: 0 auto;
+      }
+
+      .section-label {
+        font-family: "Bebas Neue", "Arial Black", sans-serif;
+        font-size: 14px;
+        font-weight: 400;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--mute);
+        margin-bottom: 12px;
+      }
+
+      .section-title {
+        font-family: "Bebas Neue", "Arial Black", sans-serif;
+        font-size: 48px;
+        line-height: 1;
+        letter-spacing: -0.5px;
+        color: var(--ink);
+        margin-bottom: 16px;
+      }
+
+      .section-subtitle {
+        font-size: 16px;
+        font-weight: 400;
+        color: var(--mute);
+        line-height: 1.7;
+        max-width: 600px;
+        margin-bottom: var(--spacing-section);
+      }
+
+      /* ── Cards Grid ── */
+      .cards-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+      }
+
+      .card {
+        background: var(--canvas);
+        padding: 32px 24px;
+        border-radius: var(--rounded-card);
+      }
+
+      .card-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        margin-bottom: 20px;
+      }
+
+      .card-icon--blue {
+        background: rgba(0, 117, 222, 0.08);
+      }
+      .card-icon--teal {
+        background: rgba(42, 157, 153, 0.1);
+      }
+      .card-icon--green {
+        background: rgba(26, 174, 57, 0.1);
+      }
+
+      .card-value {
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--ink);
+        margin-bottom: 8px;
+        letter-spacing: -0.25px;
+      }
+
+      .card-detail {
+        font-size: 14px;
+        color: var(--mute);
+        line-height: 1.6;
+      }
+
+      /* ── Feature Cards ── */
+      .feature-card {
+        background: var(--canvas);
+        border-radius: var(--rounded-card);
+        overflow: hidden;
+      }
+
+      .feature-card-bar {
+        height: 4px;
+        width: 100%;
+      }
+
+      .feature-card-bar--sky {
+        background: var(--accent-sky);
+      }
+      .feature-card-bar--green {
+        background: var(--accent-green);
+      }
+      .feature-card-bar--orange {
+        background: var(--accent-orange);
+      }
+
+      .feature-card-body {
+        padding: 32px 24px;
+      }
+
+      .feature-card-number {
+        font-family: "Bebas Neue", "Arial Black", sans-serif;
+        font-size: 40px;
+        line-height: 1;
+        color: var(--hairline);
+        margin-bottom: 12px;
+      }
+
+      .feature-card-title {
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--ink);
+        margin-bottom: 12px;
+        letter-spacing: -0.25px;
+      }
+
+      .feature-card-desc {
+        font-size: 15px;
+        color: var(--mute);
+        line-height: 1.7;
+      }
+
+      /* ── Notes Section ── */
+      .notes-list {
+        max-width: 720px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+
+      .note-card {
+        background: var(--canvas);
+        padding: 32px;
+        border-radius: var(--rounded-card);
+      }
+
+      .note-card-title {
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--ink);
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .note-card-title::before {
+        content: "";
+        display: inline-block;
+        width: 4px;
+        height: 20px;
+        background: var(--ink);
+        border-radius: 2px;
+        flex-shrink: 0;
+      }
+
+      .note-card ol,
+      .note-card ul {
+        padding-left: 20px;
+      }
+
+      .note-card li {
+        font-size: 14px;
+        color: var(--charcoal);
+        line-height: 1.8;
+        margin-bottom: 4px;
+      }
+
+      /* ── CTA Band ── */
+      .cta-band {
+        background: var(--ink);
+        color: var(--canvas);
+        padding: 80px 40px;
+        text-align: center;
+      }
+
+      .cta-band-title {
+        font-family: "Bebas Neue", "Arial Black", sans-serif;
+        font-size: 64px;
+        line-height: 1;
+        margin-bottom: 16px;
+      }
+
+      .cta-band-text {
+        font-size: 16px;
+        color: rgba(255, 255, 255, 0.7);
+        margin-bottom: 36px;
+      }
+
+      .btn-cta-band {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--canvas);
+        color: var(--ink);
+        font-size: 16px;
+        font-weight: 500;
+        padding: 16px 40px;
+        border-radius: var(--rounded-lg);
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+        height: 48px;
+        transition: opacity 0.15s;
+      }
+
+      .btn-cta-band:hover {
+        opacity: 0.9;
+      }
+
+      .btn-cta-band:active {
+        transform: scale(0.95);
+      }
+
+      /* ── Footer ── */
+      .footer {
+        background: var(--soft-cloud);
+        padding: 32px 40px;
+        text-align: center;
+        box-shadow: inset 0 1px 0 var(--hairline);
+      }
+
+      .footer-text {
+        font-size: 14px;
+        color: var(--mute);
+      }
+
+      .footer-text a {
+        color: var(--ink);
+        text-decoration: underline;
+      }
+
+      /* ── Responsive ── */
+      @media (max-width: 960px) {
+        .hero-inner {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .hero-content {
+          max-width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .hero-subtitle {
+          max-width: 100%;
+        }
+
+        .hero-buttons {
+          justify-content: center;
+        }
+
+        .hero-title {
+          font-size: 72px;
+        }
+
+        .hero-image {
+          width: 360px;
+          height: 352px;
+          border-radius: 180px;
+        }
+      }
+
+      @media (max-width: 840px) {
+        .cards-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .section-title {
+          font-size: 40px;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .nav {
+          padding: 0 20px;
+          height: 56px;
+        }
+
+        .hero {
+          padding: 64px 20px 56px;
+        }
+
+        .hero-title {
+          font-size: 54px;
+        }
+
+        .hero-subtitle {
+          font-size: 16px;
+        }
+
+        .hero-image {
+          width: 280px;
+          height: 274px;
+          border-radius: 140px;
+        }
+
+        .hero-buttons {
+          flex-direction: column;
+          width: 100%;
+        }
+
+        .hero-buttons .btn-primary,
+        .hero-buttons .btn-secondary {
+          width: 100%;
+          justify-content: center;
+        }
+
+        .section {
+          padding: 56px 20px;
+        }
+
+        .cards-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .section-title {
+          font-size: 32px;
+        }
+
+        .cta-band {
+          padding: 56px 20px;
+        }
+
+        .cta-band-title {
+          font-size: 40px;
+        }
+
+        .note-card {
+          padding: 24px 20px;
+        }
+
+        .footer {
+          padding: 24px 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="nav">
+      <a href="#" class="nav-logo">ヒーローズ勿来</a>
+      <a href="#apply" class="nav-cta">参加申込</a>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-content">
+          <span class="hero-badge">最高の週末！</span>
+          <h1 class="hero-title">Over30<br />個サイチ</h1>
+          <p class="hero-subtitle">
+            フットサルじゃ物足りない。<br />でも11人は集まらないあなたへ。
+          </p>
+          <div class="hero-buttons">
+            <a href="#apply" class="btn-primary">今すぐ申し込む</a>
+            <a href="#about" class="btn-secondary">詳しく見る</a>
+          </div>
+        </div>
+        <div class="hero-image-wrap">
+          <img
+            src="assets/hero-image.png"
+            alt="ソサイチの様子"
+            class="hero-image"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Event Overview -->
+    <section id="about" class="section section--soft">
+      <div class="section-inner">
+        <p class="section-label">Event Info</p>
+        <h2 class="section-title">イベント概要</h2>
+        <p class="section-subtitle">
+          個人でその場に集まった人たちで即席チームを作り、ソサイチの試合を楽しむサービスです。サッカーに近いロングパスや展開力を楽しめます。
+        </p>
+        <div class="cards-grid">
+          <div class="card">
+            <div class="card-icon card-icon--blue">📅</div>
+            <div class="card-value">毎週土曜日</div>
+            <div class="card-detail">8:00 〜 9:30</div>
+          </div>
+          <div class="card">
+            <div class="card-icon card-icon--teal">📍</div>
+            <div class="card-value">ヒーローズ勿来</div>
+            <div class="card-detail">
+              福島県いわき市勿来町窪田十條3-2<br />マルトＳＣ勿来十条
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-icon card-icon--green">⚽</div>
+            <div class="card-value">ヒーローズ勿来</div>
+            <div class="card-detail">
+              運営: 株式会社HMJ<br />業務提携: （一社）ふくしま健康デザイン
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 Points -->
+    <section class="section">
+      <div class="section-inner">
+        <p class="section-label">Features</p>
+        <h2 class="section-title">3つのポイント</h2>
+        <p class="section-subtitle">Over30個サイチが選ばれる理由。</p>
+        <div class="cards-grid">
+          <div class="feature-card">
+            <div class="feature-card-bar feature-card-bar--sky"></div>
+            <div class="feature-card-body">
+              <div class="feature-card-number">01</div>
+              <h3 class="feature-card-title">コート２面使用</h3>
+              <p class="feature-card-desc">
+                屋内の広いコートを活かし、サッカーに近いロングパスや展開力を楽しめます。
+              </p>
+            </div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-card-bar feature-card-bar--green"></div>
+            <div class="feature-card-body">
+              <div class="feature-card-number">02</div>
+              <h3 class="feature-card-title">雨でも開催</h3>
+              <p class="feature-card-desc">
+                屋内コートだから天候に左右されません。週末の予定が確実に決まる安心感。
+              </p>
+            </div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-card-bar feature-card-bar--orange"></div>
+            <div class="feature-card-body">
+              <div class="feature-card-number">03</div>
+              <h3 class="feature-card-title">1人参加が当たり前</h3>
+              <p class="feature-card-desc">
+                「友達を誘えない」は問題なし。参加者のほとんどが個人参加です。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Notes -->
+    <section class="section section--soft">
+      <div class="section-inner">
+        <p class="section-label">Notice</p>
+        <h2 class="section-title">参加にあたってのご注意</h2>
+        <p class="section-subtitle">必ずお読みください。</p>
+        <div class="notes-list">
+          <div class="note-card">
+            <div class="note-card-title">個人情報の取り扱いについて</div>
+            <ol>
+              <li>
+                イベントに際し、氏名・メールアドレス等のアカウント情報を取得します。
+              </li>
+              <li>
+                取得した個人情報は、個人情報保護方針に従い、適正かつ安全に管理いたします。
+              </li>
+              <li>個人情報は、イベント運営の目的以外には利用いたしません。</li>
+              <li>
+                本イベント参加者の写真および動画を、WEBメディアやSNS等にて無償で使用させていただく場合がございます。スポーツの普及のため、ご協力いただけますと幸いです。（使用を希望されない場合は、事前にお知らせください。）
+              </li>
+            </ol>
+          </div>
+          <div class="note-card">
+            <div class="note-card-title">当日のプレーに関して</div>
+            <ul>
+              <li>暴言、暴力はお止めください。</li>
+              <li>過度なコーチングはご遠慮ください。</li>
+              <li>参加者が委縮するような言動はおやめください。</li>
+              <li>コート内での飲食（飴やガムを含む）は一切禁止致します。</li>
+              <li>
+                悪質な進行の妨げ（ラフプレーや暴言など）については、個人フットサル参加、また当施設ご利用をお断りさせて頂きますので、ご理解、ご協力をお願い致します。
+              </li>
+            </ul>
+          </div>
+          <div class="note-card">
+            <div class="note-card-title">当日の負傷について</div>
+            <ul>
+              <li>
+                当日の負傷については応急処置のみを行います。継続的な治療が必要な場合は、各自のご負担となります。
+              </li>
+              <li>傷害保険は各個人で、ご加入をお勧めいたします。</li>
+            </ul>
+          </div>
+          <div class="note-card">
+            <div class="note-card-title">キャンセルポリシーについて</div>
+            <ol>
+              <li>キャンセルは前日までにお願いいたします。</li>
+              <li>
+                キャンセルは予約サイトから24時間前までは行えます。当日のキャンセルについては有料となりますが、ご連絡ください。
+              </li>
+              <li>
+                参加人数（最小催行人数14名）が集まらない場合や悪天候などにより、イベントを中止することがございます。その際は、前日までに登録した連絡先にご連絡いたします。
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Band -->
+    <section id="apply" class="cta-band">
+      <h2 class="cta-band-title">参加しませんか？</h2>
+      <p class="cta-band-text">
+        定員になり次第、締め切りとなります。お早めにお申し込みください。
+      </p>
+      <a href="mailto:info@fc-mehikari.org" class="btn-cta-band">参加申込</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p class="footer-text">
+        &copy; 2026 一般社団法人ふくしま健康デザイン｜<a
+          href="mailto:info@fc-mehikari.org"
+          >info@fc-mehikari.org</a
+        >
+      </p>
+    </footer>
+  </body>
+</html>
