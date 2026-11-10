@@ -158,6 +158,37 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     });
 })();
 
+/* ── GA4 クリック計測 ──
+   申し込みにつながるクリックを、種類ごとに別のイベント名でGA4へ送る。
+   - line_click         : LINE登録ボタン
+   - event_detail_click : 各イベントカードの「イベントの詳細」ボタン（event_title で種目を区別）
+   - reserve_click      : 予約ページ（reserve.fc-mehikari.org）へのリンク
+   GA4管理画面でこの3つを「キーイベント」に指定して使う */
+document.addEventListener("click", (e) => {
+  const link = e.target.closest("a[href]");
+  if (!link || typeof gtag !== "function") return;
+
+  const href = link.href;
+  // クリックされた場所（直近のセクションのid か class）
+  const section = link.closest("section, header, footer, .floating-btn");
+  const linkLocation = section
+    ? section.id || section.classList[0] || "section"
+    : "unknown";
+
+  if (href.includes("lin.ee")) {
+    gtag("event", "line_click", { link_location: linkLocation });
+  } else if (href.includes("reserve.fc-mehikari.org")) {
+    gtag("event", "reserve_click", { link_location: linkLocation });
+  } else if (link.classList.contains("event-card__btn")) {
+    const card = link.closest(".event-card");
+    const title = card.querySelector(".event-card__title");
+    gtag("event", "event_detail_click", {
+      event_title: title ? title.textContent.trim() : "unknown",
+      link_url: href,
+    });
+  }
+});
+
 /* ── 予約ボタン：外部URLをここに設定する ── */
 const RESERVE_URL = "#"; // ← ここに外部予約サービスのURLを入れる
 
