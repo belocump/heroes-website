@@ -1100,6 +1100,27 @@
         );
         reveals.forEach((el) => observer.observe(el));
       });
+
+      /* ── GA4 クリック計測（トップページの script.js と同じイベント名にそろえる） ── */
+      document.addEventListener("click", (e) => {
+        const link = e.target.closest("a[href]");
+        if (!link || typeof gtag !== "function") return;
+
+        // クリックされた場所（直近のセクションのid か class）
+        const section = link.closest("section, header, footer");
+        const linkLocation = section
+          ? section.id || section.classList[0] || "section"
+          : "unknown";
+
+        if (link.href.includes("lin.ee")) {
+          gtag("event", "line_click", { link_location: "mehikari_" + linkLocation });
+        } else if (link.href.includes("reserve.fc-mehikari.org")) {
+          gtag("event", "reserve_click", {
+            link_location: "mehikari_" + linkLocation,
+            event_title: "ウォーキングフットボール（健康フィールド）",
+          });
+        }
+      });
     </script>
   </body>
 </html>
